@@ -10,18 +10,30 @@ const config = {
     module: {
         loaders: [
             {
+                test: /\.vue$/,
+                loader: 'vue-loader',
+                options: {
+                    loaders: {
+                        'scss': 'vue-style-loader!css-loader!sass-loader',
+                        'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax'
+                    }
+                }
+            },
+            {
                 test: /\.js$/,
-                exclude: /(node_modules)/,
+                exclude: /node_modules/,
                 loader: 'babel-loader',
                 query: {
-                    presets: ['es2015']
+                    presets: ['es2015'],
+                    plugins: ['transform-runtime']
                 }
             }
         ]
     },
     plugins: [
         new HtmlWebpackPlugin({template: './index.html'})
-    ]
+    ],
+    devtool: '#eval-source-map'
 };
 
 module.exports = config;
