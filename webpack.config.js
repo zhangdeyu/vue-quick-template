@@ -11,13 +11,7 @@ const config = {
         loaders: [
             {
                 test: /\.vue$/,
-                loader: 'vue-loader',
-                options: {
-                    loaders: {
-                        'scss': 'vue-style-loader!css-loader!sass-loader',
-                        'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax'
-                    }
-                }
+                loader: 'vue'
             },
             {
                 test: /\.js$/,
@@ -27,8 +21,28 @@ const config = {
                     presets: ['es2015'],
                     plugins: ['transform-runtime']
                 }
+            },
+            {
+                test: /\.scss$/,
+                loader: 'style!css!autoprefixer!sass'
+            }, 
+            {
+                test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+                loader: 'url'
+            }, 
+            {
+                test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+                loader: 'url'
             }
+
         ]
+    },
+    vue: {
+        loaders: {
+            'stylus': 'vue-style-loader!css-loader!autoprefixer-loader?browsers=last 2 version!stylus-loader',
+            'scss': 'vue-style-loader!css-loader!autoprefixer-loader?browsers=last 2 version!sass-loader',
+            'sass': 'vue-style-loader!css-loader!autoprefixer-loader?browsers=last 2 version!sass-loader?indentedSyntax'
+        }
     },
     plugins: [
         new HtmlWebpackPlugin({template: './index.html'})

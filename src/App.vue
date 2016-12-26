@@ -1,14 +1,17 @@
-<style lang="sass">
-#app {
-    width: 100%;
-    height: 600px;
-    background: #cccccc;
-}
+<style lang="stylus">
+#app
+    display: flex;
+    .name
+        background: #cccccc;
+        line-height: 20px;
+        text-align: center;
+        min-width: 60px;
+        height: 20px
 </style>
-<template>
-<div id="app">
-hello
-</div>
+<template lang="pug">
+#app
+    .name {{name}}
+    input(type="text", v-model="name")
 </template>
 <script>
 export default {
