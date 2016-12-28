@@ -9,17 +9,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zhangdeyu/resume.git"
+    "url": "git+https://github.com/zhangdeyu/vue-quick-template.git"
   },
   "keywords": [
-    "resume"
+    "vue-quick-template"
   ],
   "author": "Derek",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/zhangdeyu/resume/issues"
+    "url": "https://github.com/zhangdeyu/vue-quick-template/issues"
   },
-  "homepage": "https://github.com/zhangdeyu/resume#readme",
+  "homepage": "https://github.com/zhangdeyu/vue-quick-template#readme",
   "devDependencies": {
     "autoprefixer-loader": "^3.2.0",
     "babel": "^6.5.2",
