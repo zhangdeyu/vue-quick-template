@@ -23,13 +23,17 @@ const config = {
                 }
             },
             {
+                test: /\.styl$/,
+                loader: 'vue-style-loader!css-loader!autoprefixer-loader?browsers=last 2 version!stylus-loader'
+            },
+            {
                 test: /\.scss$/,
-                loader: 'style!css!autoprefixer!sass'
-            }, 
+                loader: 'vue-style-loader!css-loader!autoprefixer-loader?browsers=last 2 version!sass-loader'
+            },
             {
                 test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
                 loader: 'url'
-            }, 
+            },
             {
                 test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
                 loader: 'url'
