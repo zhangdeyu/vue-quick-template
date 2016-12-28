@@ -12,13 +12,14 @@
 #app
     .name {{name}}
     input(type="text", v-model="name")
+    router-view
 </template>
 <script>
 export default {
     name: 'app',
     data() {
         return {
-            name: 'Derek'
+            name: 'hello Derek'
         }
     }
 }
