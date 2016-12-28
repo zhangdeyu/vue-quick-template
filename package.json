@@ -4,7 +4,7 @@
   "description": "vue-quick-template",
   "main": "app.js",
   "scripts": {
-    "start": "webpack-dev-server --inline --progress --history-api-fallback --hot",
+    "start": "webpack-dev-server --host 0.0.0.0 --inline --progress --history-api-fallback --hot",
     "build": "webpack --config webpack.config.js"
   },
   "repository": {
