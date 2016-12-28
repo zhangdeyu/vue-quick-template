@@ -1,7 +1,7 @@
 {
-  "name": "resume",
+  "name": "vue-quick-template",
   "version": "1.0.0",
-  "description": "resume",
+  "description": "vue-quick-template",
   "main": "app.js",
   "scripts": {
     "start": "webpack-dev-server --inline --progress --history-api-fallback --hot",
