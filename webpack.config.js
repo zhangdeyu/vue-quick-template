@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const path = require('path');
+const _ = require('lodash');
 
 const config = {
     entry: './src/app.js',
@@ -40,9 +41,21 @@ const config = {
         }
     },
     plugins: [
-        new HtmlWebpackPlugin({template: './index.html'})
+        new HtmlWebpackPlugin({
+            template: './index.html',
+            hash: true
+        })
     ],
     devtool: '#eval-source-map'
 };
+if (process.env.NODE_ENV === 'production') {
+    config.plugins.push(
+        new webpack.optimize.UglifyJsPlugin({
+          compress: {
+            warnings: false
+          }
+        })
+    );
+}
 
 module.exports = config;
