@@ -1,52 +1,50 @@
 {
-  "name": "vue-quick-template",
+  "name": "vue-webpack-simple",
   "version": "1.0.0",
-  "description": "vue-quick-template",
+  "description": "vue-webpack-simple",
   "main": "app.js",
   "scripts": {
-    "start": "webpack-dev-server --host 0.0.0.0 --inline --progress --history-api-fallback --hot",
+    "start": "webpack-dev-server --host 0.0.0.0 --inline --progress --history-api-fallback --hot --open",
     "build": "webpack --config webpack.config.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zhangdeyu/vue-quick-template.git"
+    "url": "git+https://github.com/zhangdeyu/vue-webpack-simple.git"
   },
   "keywords": [
-    "vue-quick-template"
+    "vue-webpack-simple"
   ],
   "author": "Derek",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/zhangdeyu/vue-quick-template/issues"
+    "url": "https://github.com/zhangdeyu/vue-webpack-simple/issues"
   },
-  "homepage": "https://github.com/zhangdeyu/vue-quick-template#readme",
+  "homepage": "https://github.com/zhangdeyu/vue-webpack-simple#readme",
   "devDependencies": {
     "autoprefixer-loader": "^3.2.0",
-    "babel": "^6.5.2",
-    "babel-core": "^6.21.0",
+    "babel-core": "^6.22.1",
     "babel-loader": "^6.2.10",
-    "babel-plugin-transform-runtime": "^6.15.0",
-    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-es2015": "^6.22.0",
     "css-loader": "^0.26.1",
     "file-loader": "^0.9.0",
-    "html-webpack-plugin": "^2.24.1",
-    "node-sass": "^4.1.1",
-    "pug": "^2.0.0-beta6",
+    "html-webpack-plugin": "^2.28.0",
+    "node-sass": "^4.5.0",
+    "postcss-pxtorem": "^4.0.0",
+    "pug": "^2.0.0-beta9",
     "sass-loader": "^4.1.1",
     "style-loader": "^0.13.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^2.4.0",
     "url-loader": "^0.5.7",
-    "vue-loader": "^10.0.2",
+    "vue-loader": "^10.3.0",
     "vue-style-loader": "^1.0.0",
-    "vue-template-compiler": "^2.1.7",
-    "webpack": "^1.14.0",
-    "webpack-dev-server": "^1.16.2"
+    "vue-template-compiler": "^2.1.10",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.3.0"
   },
   "dependencies": {
-    "babel-runtime": "^6.20.0",
-    "lodash": "^4.17.3",
-    "vue": "^2.1.7",
-    "vue-router": "^2.1.1"
+    "lodash": "^4.17.4",
+    "vue": "^2.1.10",
+    "vue-router": "^2.2.0"
   }
 }

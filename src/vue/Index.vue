@@ -2,5 +2,7 @@
 .index this is index
 </template>
 <script>
-export default {}
+export default {
+    name: 'Index'
+}
 </script>

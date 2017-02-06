@@ -1,4 +1,5 @@
 <style lang="stylus">
+@import '~style/style'
 #app
     display: flex;
     .name
