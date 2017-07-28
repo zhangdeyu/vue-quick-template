@@ -6,8 +6,10 @@ const _ = require('lodash');
 const config = {
     entry: './src/app.js',
     output: {
-        filename: 'bundle.js',
-        path: path.resolve(__dirname, "dist")
+        filename: '[name].[hash:7].bundle.js',
+        chunkFilename: 'chunkBundle.[name].[hash:7].js',
+        path: path.resolve(__dirname, "dist"),
+        publicPath: '/'
     },
     module: {
         rules: [
@@ -15,7 +17,18 @@ const config = {
                 test: /\.vue$/,
                 loader: 'vue-loader',
                 options: {
-                    postcss: [require('autoprefixer')(), require('postcss-pxtorem')()]
+                    postcss: [
+                        require('autoprefixer')({
+                            browsers: [
+                                'last 2 versions',
+                                'iOS >= 8',
+                                'Safari >= 8',
+                                'Android >= 4',
+                                '> 1%'
+                            ]
+                        }), 
+                        require('postcss-pxtorem')()
+                    ]
                 }
             },
             {
@@ -25,13 +38,20 @@ const config = {
             },
             {
                 test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-                loader: 'url-loader'
+                loader: 'url-loader',
+                options: {
+                    limit: 10000,
+                    name: 'img/[name].[hash:7].[ext]'
+                }
             },
             {
                 test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-                loader: 'url-loader'
+                loader: 'url-loader',
+                options: {
+                    limit: 10000,
+                    name: 'img/[name].[hash:7].[ext]'
+                }
             }
-
         ]
     },
     resolve: {
@@ -46,14 +66,26 @@ const config = {
             hash: true
         })
     ],
+    devServer: {
+        contentBase: path.join(__dirname, "dist"),
+        publicPath: '/',
+        compress: true,
+        disableHostCheck: true,
+        historyApiFallback: true
+    },
     devtool: '#eval-source-map'
 };
 if (process.env.NODE_ENV === 'production') {
     config.plugins.push(
         new webpack.optimize.UglifyJsPlugin({
-          compress: {
-            warnings: false
-          }
+            sourceMap: false,
+            compress: {
+                warnings: false,
+                drop_console: true
+            }
+        }),
+        new webpack.LoaderOptionsPlugin({
+            minimize: true
         })
     );
 }
