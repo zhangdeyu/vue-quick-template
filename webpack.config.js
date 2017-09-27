@@ -4,7 +4,10 @@ const path = require('path');
 const _ = require('lodash');
 
 const config = {
-    entry: './src/app.js',
+    entry: {
+        app: './src/app.js',
+        vendor: ["vue", "vue-router"]
+    },
     output: {
         filename: '[name].[hash:7].bundle.js',
         chunkFilename: 'chunkBundle.[name].[hash:7].js',
@@ -27,7 +30,15 @@ const config = {
                                 '> 1%'
                             ]
                         }), 
-                        require('postcss-pxtorem')()
+                        require('postcss-pxtorem')({
+                            // 根元素大小 2x设计稿  750px宽度
+                            rootValue: 75,
+                            unitPrecision: 2,
+                            propWhiteList: [],
+                            replace: true,
+                            mediaQuery: false,
+                            minPixelValue: 2
+                        })
                     ]
                 }
             },
@@ -61,9 +72,17 @@ const config = {
         }
     },
     plugins: [
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: JSON.stringify(process.env.NODE_ENV)
+            }
+        }),
         new HtmlWebpackPlugin({
             template: './index.html',
-            hash: true
+            inject: 'body'
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendor'
         })
     ],
     devServer: {
